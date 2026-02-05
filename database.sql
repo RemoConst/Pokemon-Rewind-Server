@@ -51,15 +51,14 @@ alter table tb_user
 
 create table tb_pokemon
 (
-    pokemon_uuid          varchar(36)      not null
+    pokemon_uuid varchar(36)      not null
         constraint tb_pokemon_pk
             primary key,
-    pokemon_name          varchar(36)      not null
+    pokemon_name varchar(36)      not null
         constraint tb_pokemon_tb_language_language_id_fk
             references tb_language,
-    pokemon_type_relation varchar(36)      not null,
-    size                  double precision not null,
-    weight                double precision not null
+    size         double precision not null,
+    weight       double precision not null
 );
 
 alter table tb_pokemon
@@ -94,16 +93,12 @@ create table tb_pokemon_type_relation
 alter table tb_pokemon_type_relation
     owner to root;
 
-alter table tb_pokemon
-    add constraint tb_pokemon_tb_pokemon_type_relation_pokemon_type_relation_id_fk
-        foreign key (pokemon_type_relation) references tb_pokemon_type_relation;
-
 create table tb_skill_type
 (
     skill_type_uuid varchar(36) not null
         constraint tb_skill_type_pk
             primary key,
-    skill_name      varchar(36) not null
+    skill_type_name varchar(36) not null
         constraint tb_skill_type_tb_language_language_id_fk
             references tb_language
 );
@@ -306,12 +301,12 @@ alter table tb_client
 
 create table tb_admin
 (
-    admin_uuid     varchar(36) not null
+    admin_uuid varchar(36) not null
         constraint tb_admin_pk
             primary key,
-    admin_id       varchar(36) not null,
-    admin_password text        not null,
-    admin_salt     integer
+    user_uuid  varchar(36) not null
+        constraint tb_admin_tb_user_user_uuid_fk
+            references tb_user
 );
 
 alter table tb_admin
@@ -349,5 +344,38 @@ create table tb_blacklist
 );
 
 alter table tb_blacklist
+    owner to root;
+
+create table tb_pokemon_tree
+(
+    pokemon_tree_uuid  varchar(36) not null
+        constraint tb_pokemon_tree_pk
+            primary key,
+    pokemon_uuid       varchar(36) not null
+        constraint tb_pokemon_tree_tb_pokemon_pokemon_uuid_fk
+            references tb_pokemon,
+    pokemon_descendant varchar(36)
+        constraint tb_pokemon_tree_tb_pokemon_pokemon_uuid_fk_2
+            references tb_pokemon
+);
+
+alter table tb_pokemon_tree
+    owner to root;
+
+create table tb_pokemon_skill_relation
+(
+    pokemon_skill_relation_uuid varchar(36) not null
+        constraint tb_pokemon_skill_relation_pk
+            primary key,
+    pokemon_uuid                varchar(36) not null
+        constraint tb_pokemon_skill_relation_tb_pokemon_pokemon_uuid_fk
+            references tb_pokemon,
+    skill_uuid                  varchar(36) not null
+        constraint tb_pokemon_skill_relation_tb_skill_skill_uuid_fk
+            references tb_skill,
+    level                       integer     not null
+);
+
+alter table tb_pokemon_skill_relation
     owner to root;
 
