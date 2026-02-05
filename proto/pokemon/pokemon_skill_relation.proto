@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-package base;
+package pokemon;
 
-option go_package = "Pokemon/proto_go";
+option go_package = "Pokemon/proto_go/pokemon";
 
-import "pokemon/pokemon_inventory.proto";
+import "pokemon/pokemon.proto";
 import "pokemon/skill.proto";
 
 message PokemonSkillRelation {
     string uuid = 1;
-    Pokemon pokemon = 2;
-    Skill skill = 3;
+    pokemon.Pokemon pokemon = 2;
+    pokemon.Skill skill = 3;
     int32 level = 4;
 }
