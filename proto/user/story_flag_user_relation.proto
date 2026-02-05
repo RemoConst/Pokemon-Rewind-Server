@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "Pokemon/proto_go/user";
+
+import "user/user.proto";
+import "server/story_flag.proto";
+
+message StoryFlagUserRelation {
+    string uuid = 1;
+    User user = 2;
+    server.StoryFlag story_flag = 3;
+    int64 created_at = 4;
+}

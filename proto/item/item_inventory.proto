@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/item";
+
+import "user/user.proto";
+import "item/item.proto";
+
+message ItemInventory {
+    string uuid = 1;
+    user.User user = 2;
+    Item item = 3;
+}

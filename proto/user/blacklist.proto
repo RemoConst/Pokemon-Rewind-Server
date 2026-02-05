@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "Pokemon/proto_go/user";
+
+import "user/user.proto";
+
+message BlackList {
+    string uuid = 1;
+    User user = 2;
+    string description = 3;
+    int64 created_at = 4;
+    int64 started_at = 5;
+    int64 ended_at = 6;
+}

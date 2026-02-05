@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/item";
+
+import "server/language.proto";
+import "item/item_category.proto";
+
+message Item {
+    string uuid = 1;
+    server.Language name = 2;
+    ItemCategory category = 3;
+    server.Language description = 4;
+    int32 max = 5;
+}
+

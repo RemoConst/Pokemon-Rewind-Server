@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/pokemon";
+
+import "pokemon/pokemon.proto";
+
+message PokemonTree {
+    string uuid = 1;
+    Pokemon pokemon = 2;
+    Pokemon descedant = 3;
+}

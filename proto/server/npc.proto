@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "Pokemon/proto_go/server";
+
+import "server/language.proto";
+
+message Npc {
+    string uuid = 1;
+    Language name = 2;
+}

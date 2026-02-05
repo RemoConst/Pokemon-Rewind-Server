@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/pokemon";
+
+import "pokemon/pokemon.proto";
+import "pokemon/pokemon_type.proto";
+
+message PokemonTypeRelation {
+    string uuid = 1;
+    pokemon.Pokemon pokemon = 2;
+    pokemon.PokemonType type = 3;
+}

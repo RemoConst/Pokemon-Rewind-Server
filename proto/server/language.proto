@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "Pokemon/proto_go/server";
+
+message Language {
+    string uuid = 1;
+    string kor = 2;
+    string en = 3;
+    string cn = 4;
+    string jp = 5;
+}

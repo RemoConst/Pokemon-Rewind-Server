@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "Pokemon/proto_go/server";
+
+message Client {
+    string uuid = 1;
+    int32 client_status = 2;
+    int32 server_status = 3;
+    string client_version = 4;
+    string server_version = 5;
+    int64 created_at = 6;
+    int64 updated_at = 7;
+    string server_cdn = 8;
+}

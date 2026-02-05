@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/pokemon";
+
+import "pokemon/pokemon_inventory.proto";
+import "pokemon/skill.proto";
+
+message PokemonInventorySkillRelation {
+    string uuid = 1;
+    PokemonInventory pokemon_inventory = 2;
+    Skill skill = 3;
+    int32 power_point = 4;
+    int32 use = 5;
+}

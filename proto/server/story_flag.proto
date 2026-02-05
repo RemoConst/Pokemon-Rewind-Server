@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "Pokemon/proto_go/server";
+
+message StoryFlag {
+    string uuid = 1;
+}

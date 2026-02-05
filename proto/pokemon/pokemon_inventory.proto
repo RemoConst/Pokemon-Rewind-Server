@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/pokemon";
+
+import "user/user.proto";
+import "pokemon/pokemon.proto";
+import "item/item.proto";
+
+message PokemonInventory {
+    string uuid = 1;
+    user.User user = 2;
+    pokemon.Pokemon pokemon = 3;
+    Item item = 4;
+    int32 type = 5;
+    int32 intimacy = 6;
+    int32 level = 7;
+    int32 exp = 8;
+    int32 hp = 9;
+}

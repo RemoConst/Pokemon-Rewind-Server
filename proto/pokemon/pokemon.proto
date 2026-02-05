@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/pokemon";
+
+import "server/language.proto";
+
+message Pokemon {
+    string uuid = 1;
+    server.Language name = 2;
+    float size = 3;
+    float weight = 4;
+}

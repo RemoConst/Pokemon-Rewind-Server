@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "Pokemon/proto_go/user";
+
+import "user/user.proto";
+
+message Admin {
+    string uuid = 1;
+    User user = 2;
+}

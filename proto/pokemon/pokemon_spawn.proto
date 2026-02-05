@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/pokemon";
+
+import "pokemon/pokemon.proto";
+import "server/map.proto";
+
+message PokemonSpawn {
+    string uuid = 1;
+    Pokemon pokemon = 2;
+    server.Map map = 3;
+    float probability = 4;
+}

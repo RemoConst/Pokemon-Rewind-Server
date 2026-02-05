@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go/pokemon";
+
+import "server/language.proto";
+import "pokemon/skill_type.proto";
+import "pokemon/skill_division.proto";
+
+message Skill {
+    string uuid = 1;
+    server.Language name = 2;
+    float damage = 3;
+    float accuracy = 4;
+    pokemon.SkillType type = 5;
+    pokemon.SkillDivision division = 6;
+    int32 priority = 7;
+}

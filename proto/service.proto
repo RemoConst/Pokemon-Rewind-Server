@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pokemon;
+
+option go_package = "Pokemon/proto_go";
+
+message NilResponseMsg {}
+
+import "user/user.proto";
+
+service Pokemon {
+    rpc Login(user.LoginRequestMsg) returns (user.LoginResponseMsg);
+    rpc Register(user.RegisterRequestMsg) returns (NilResponseMsg);
+}
